@@ -33,8 +33,6 @@ $ nvm ls
 $ nvm use <version>
 ```
 
----
-
 <!-- Version -->
 
 ## Version
@@ -43,8 +41,6 @@ $ nvm use <version>
 - yarn 1.22.19
 - Vue 3x
 - ESLint 7.x
-
----
 
 <!-- Tech Stack -->
 
@@ -58,8 +54,6 @@ $ nvm use <version>
 - **JavaScript Version:** ES6
 - **CSS Preprocessor:** SCSS
 
----
-
 <!-- Library -->
 
 ## Library
@@ -72,8 +66,6 @@ $ nvm use <version>
 - [pinia](https://github.com/vuejs/pinia)
 - [axios](https://github.com/axios/axios)
 - [vue-router](https://github.com/vuejs/router)
-
----
 
 <!-- Reference -->
 
