@@ -1,16 +1,14 @@
 <template>
 	<router-view />
+
+	<alertDialog v-if="dialog.alertOption.open" />
+	<confirmDialog v-if="dialog.confirmOption.open" />
 </template>
 
-<script setup></script>
+<script setup>
+import { useDialogStore } from '@/store/module/dialog';
+import alertDialog from '@/component/dialog/alertDialog';
+import confirmDialog from '@/component/dialog/confirmDialog';
 
-<style>
-#app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-	margin-top: 60px;
-}
-</style>
+const dialog = useDialogStore();
+</script>
