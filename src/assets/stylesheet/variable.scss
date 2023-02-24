@@ -1,7 +1,21 @@
 @use 'sass:math';
 // color
+$primary: #7f2aff;
+$secondary: #ff557f;
+$positive: #2a55ff;
+$negative: #ff0000;
+
 $black: #000;
 $white: #fff;
+$gray_900: #222;
+$gray_800: #424242;
+$gray_700: #616161;
+$gray_600: #8e8e8e;
+$gray_500: #bdbdbd;
+$gray_400: #e0e0e0;
+$gray_300: #ededed;
+$gray_200: #f7f7f7;
+$gray_100: #fafafa;
 
 // font
 $roboto: 'Roboto';
@@ -18,5 +32,5 @@ $noto: 'Noto Sans CJK KR';
 $base-size: 16; // html default font size
 
 @function size($target, $context: $base-size) {
-    @return math.div($target, $context) * 1.4vw;
+	@return math.div($target, $context) * 1.4vw;
 }

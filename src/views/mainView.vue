@@ -8,11 +8,10 @@
 			<button type="button" class="btn" @click="openDialog('confirm')">
 				CONFIRM
 			</button>
-			<button type="button" class="btn" @click="openDialog('modal')">
-				MODAL
-			</button>
+			<button type="button" class="btn" @click="openPopup()">MODAL</button>
 		</div>
 		<modalLayer v-if="modal.visibleModal">
+			<h2 class="modal__title">Title</h2>
 			<div class="modal__container">MODAL LAYER CONTAINER</div>
 		</modalLayer>
 	</section>
@@ -55,16 +54,15 @@ let openDialog = type => {
 				callback: checkConfirm,
 			});
 			break;
-		case 'modal':
-			modal.openModal(true);
-			break;
 	}
+};
+
+let openPopup = () => {
+	modal.openModal(true);
 };
 </script>
 
 <style lang="scss" scoped>
-.container {
-}
 h2 {
 	font-size: 36px;
 	text-align: center;

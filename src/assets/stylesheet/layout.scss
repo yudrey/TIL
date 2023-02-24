@@ -35,6 +35,7 @@
 }
 
 body {
+	color: $gray_900;
 	&.unscroll {
 		overflow: hidden;
 	}
@@ -134,35 +135,6 @@ select::-ms-expand {
 			@include hide-text;
 		}
 	}
-	&__nav {
-		position: absolute;
-		top: 60px;
-		right: 50px;
-
-		&__list {
-			display: inline-flex;
-			align-content: center;
-
-			& + &.template__nav__list {
-				position: relative;
-				padding-left: 30px;
-
-				&:after {
-					content: '';
-					display: block;
-					position: absolute;
-					top: 5px;
-					left: 10px;
-					width: 6px;
-					height: 6px;
-					border: solid gray;
-					border-width: 0 2px 2px 0;
-					transform: rotate(45deg);
-					-webkit-transform: rotate(-45deg);
-				}
-			}
-		}
-	}
 }
 
 .btn {
@@ -186,7 +158,7 @@ select::-ms-expand {
 					transform: translate(-50%, -50%);
 					width: 8px;
 					height: 8px;
-					background: white;
+					background: $white;
 					border-radius: 100%;
 				}
 			}
@@ -195,14 +167,6 @@ select::-ms-expand {
 		&__label {
 			margin-right: 20px;
 		}
-	}
-	&__view-more {
-		width: 200px;
-		margin: 40px auto;
-		padding: 16px;
-		background: #eee;
-		font-size: 18px;
-		@include center-element;
 	}
 }
 
@@ -224,7 +188,6 @@ select::-ms-expand {
 			background: #fff;
 			border-top: none;
 			margin-top: 1px;
-			// cursor: pointer;
 		}
 	}
 
@@ -357,66 +320,6 @@ select::-ms-expand {
 			&.visible {
 				display: inline-block;
 			}
-		}
-	}
-}
-
-.custom-select {
-	position: relative;
-	width: 140px;
-	font-size: 16px;
-	.selected {
-		display: block;
-		width: 100%;
-		height: 34px;
-		padding: 5px 10px;
-		background: #fff;
-		border: 1px solid #ccc;
-		border-radius: 5px;
-		text-align: left;
-
-		&--arrow {
-			&:after {
-				position: absolute;
-				right: 10px;
-				top: 10px;
-				content: '';
-				width: 8px;
-				height: 8px;
-				border-top: 2px solid #333;
-				border-right: 2px solid #333;
-				transform: rotate(135deg);
-			}
-			&.selected--active {
-				&:after {
-					top: 14px;
-					transform: rotate(315deg);
-				}
-			}
-		}
-
-		&--active {
-			&:after {
-				top: 14px;
-				transform: rotate(315deg);
-			}
-		}
-	}
-
-	.option {
-		&__wrap {
-			position: absolute;
-			top: 40px;
-			width: 100%;
-			padding: 5px;
-			background: #fff;
-			border: 1px solid #eee;
-			border-radius: 5px;
-			box-shadow: 5px 5px 5px #ccc;
-		}
-		&__list {
-			cursor: pointer;
-			padding: 5px;
 		}
 	}
 }

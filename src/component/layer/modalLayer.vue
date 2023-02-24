@@ -1,7 +1,6 @@
 <template>
 	<section class="modal__wrap">
 		<div class="modal">
-			<slot></slot>
 			<button
 				class="btn__close"
 				type="button"
@@ -10,6 +9,7 @@
 			>
 				<span>닫기</span>
 			</button>
+			<slot></slot>
 		</div>
 	</section>
 </template>
@@ -28,11 +28,12 @@ const closeModal = () => {
 <style scoped lang="scss">
 .modal {
 	position: relative;
-	min-width: 800px;
-	max-width: calc(100% - 20px);
-	min-height: 50%;
-	max-height: 80%;
-	background: white;
+	min-width: 600px;
+	max-width: 50%;
+	height: 500px;
+	padding: 24px 24px 60px 24px;
+	background: $white;
+	border-radius: 20px;
 
 	&__wrap {
 		display: flex;
@@ -47,20 +48,30 @@ const closeModal = () => {
 		background-color: rgba(0, 0, 0, 0.5);
 	}
 
-	::v-deep &__container {
+	::v-deep &__title {
+		position: relative;
 		width: 100%;
-		height: 100%;
-		padding: 50px;
-		font-size: 18px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid $gray_500;
+		font-size: 20px;
+		font-weight: bold;
+		text-align: left;
+	}
+
+	::v-deep &__container {
+		overflow-y: auto;
+		width: 100%;
+		height: calc(100% - 40px);
+		padding: 40px 20px;
 	}
 
 	.btn {
 		&__close {
 			position: absolute;
-			top: 0;
-			right: 0;
-			width: 50px;
-			height: 50px;
+			top: 24px;
+			right: 24px;
+			width: 24px;
+			height: 24px;
 
 			span {
 				@include hide-text;
@@ -69,13 +80,13 @@ const closeModal = () => {
 			&:before,
 			&:after {
 				position: absolute;
-				top: 10px;
-				right: 20px;
+				top: 0;
+				right: 12px;
 				z-index: 5;
 				content: ' ';
 				height: 24px;
 				width: 2px;
-				background-color: #000;
+				background-color: $gray_700;
 			}
 
 			&:before {

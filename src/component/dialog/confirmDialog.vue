@@ -41,8 +41,9 @@ const closeConfirm = value => {
 <style scoped lang="scss">
 .confirm {
 	overflow: hidden;
-	min-width: 400px;
-	max-width: 800px;
+	position: relative;
+	width: 450px;
+	padding-bottom: 80px;
 	border-radius: 20px;
 	box-sizing: border-box;
 	background: white;
@@ -69,22 +70,35 @@ const closeConfirm = value => {
 	.btn {
 		&__wrap {
 			display: flex;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			padding: 0 20px 20px 20px;
+			@include center-element;
 
 			button {
 				flex: 1;
-				height: 80px;
-				font-size: 18px;
-				font-weight: 500;
+				height: 60px;
+				font: {
+					size: 18px;
+					weight: 500;
+				}
+				border-radius: 10px;
+
+				& + button {
+					margin-left: 20px;
+				}
 			}
 		}
 
 		&__ok {
-			background: black;
-			color: white;
+			background: $primary;
+			color: $white;
 		}
 
 		&__cancel {
-			background: gray;
+			background: #eee;
+			border: 1px solid #ccc;
 		}
 	}
 }

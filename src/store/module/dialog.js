@@ -15,7 +15,6 @@ export const useDialogStore = defineStore('dialog', {
 			cancel: '',
 			callback: () => {},
 		},
-		visibleModal: false,
 	}),
 	actions: {
 		openAlertDialog(value) {
