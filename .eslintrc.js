@@ -6,6 +6,8 @@ module.exports = {
 		browser: true,
 		node: true,
 		es6: true,
+		// To use props&emit without declaring defineProps,defineEmits in each template
+		'vue/setup-compiler-macros': true,
 	},
 	extends: [
 		'plugin:vue/vue3-essential',
