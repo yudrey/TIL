@@ -70,6 +70,7 @@ const closeModal = () => {
 			position: absolute;
 			top: 24px;
 			right: 24px;
+			z-index: 2;
 			width: 24px;
 			height: 24px;
 
