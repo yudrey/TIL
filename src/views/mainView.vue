@@ -1,10 +1,12 @@
 <template>
-	<section class="container">
-		<h2>Vue.js boilerplate</h2>
-		<section>
-			<h3>Components for global use</h3>
-			<div>
-				<p>Click the button to check alert/confirm/modal function</p>
+	<section class="container mainView">
+		<h2 class="mainView__title">Vue.js boilerplate</h2>
+		<section class="mainView__section">
+			<h3 class="section__title">Components for global use</h3>
+			<div class="mainView__content">
+				<p class="content__title">
+					Click the button to check alert/confirm/modal function
+				</p>
 				<div class="btn__wrap">
 					<button type="button" class="btn" @click="openDialog('alert')">
 						ALERT
@@ -15,17 +17,17 @@
 					<button type="button" class="btn" @click="openPopup()">MODAL</button>
 				</div>
 			</div>
-			<div>
-				<p>Selected option is displayed</p>
+			<div class="mainView__content">
+				<p class="content__title">Selected option is displayed</p>
 				<selectbox
-					@updateSelected="handleMemberType"
+					@update-selected="handlSelectedeOption"
 					:options="selectOoptions"
 					:boxStyle="selectboxStyle"
 				/>
 				{{ selectedValue }}
 			</div>
 		</section>
-		<modalLayer v-if="modal.visibleModal">
+		<modalLayer>
 			<h2 class="modal__title">Title</h2>
 			<div class="modal__container">MODAL LAYER CONTAINER</div>
 		</modalLayer>
@@ -68,7 +70,7 @@ const checkConfirm = payload => {
 	}
 };
 
-let openDialog = type => {
+const openDialog = type => {
 	console.log('type ===', type);
 	switch (type) {
 		case 'alert':
@@ -87,34 +89,38 @@ let openDialog = type => {
 			break;
 	}
 };
-let openPopup = () => {
+const openPopup = () => {
 	modal.openModal(true);
 };
 
-const handleMemberType = option => {
-	console.log('Emit event handleMemberType', option);
+const handlSelectedeOption = option => {
+	console.log('Emit event handlSelectedeOption', option);
 	selectedValue.value = option;
 };
 </script>
 
 <style lang="scss" scoped>
-.container {
-	> section {
+.mainView {
+	&__section {
 		width: 640px;
 		margin: 0 auto;
-		h3 {
-			padding-bottom: 10px;
-			border-bottom: 1px solid $gray_400;
+		.section {
+			&__title {
+				padding-bottom: 10px;
+				border-bottom: 1px solid $gray_400;
+			}
 		}
-		> div {
-			padding: 30px 0;
-			border-bottom: 1px solid $gray_400;
-			p {
+	}
+	&__content {
+		padding: 30px 0;
+		border-bottom: 1px solid $gray_400;
+		.content {
+			&__title {
 				margin-bottom: 10px;
 			}
 		}
 	}
-	h2 {
+	&__title {
 		margin-bottom: 50px;
 		font-size: 36px;
 		text-align: center;

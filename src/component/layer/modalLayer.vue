@@ -1,5 +1,5 @@
 <template>
-	<section class="modal__wrap">
+	<section class="modal__wrap" v-if="modal.visibleModal">
 		<div class="modal">
 			<button
 				class="btn__close"

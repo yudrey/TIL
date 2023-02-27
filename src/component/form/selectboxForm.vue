@@ -33,6 +33,7 @@ const props = defineProps({
 	disableSelectbox: {
 		type: Boolean,
 		required: false,
+		default: false,
 	},
 	defaultSelected: {
 		type: String,
