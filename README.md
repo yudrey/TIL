@@ -227,6 +227,21 @@ const handlSelectedeOption = option => {
 </script>
 ```
 
+### ◼ Checkbox
+
+#### Props
+
+| Key       | Type   | Default | Required | Description                                 |
+| --------- | ------ | ------- | -------- | ------------------------------------------- |
+| options   | Array  | []      | true     | 체크박스 옵션리스트                         |
+| checkType | String | ''      | true     | 체크박스 input type 'radio' 또는 'checkbox' |
+
+#### Emits
+
+| Event listener | Event handler       | Description          |
+| -------------- | ------------------- | -------------------- |
+| update-checked | handleCheckedOption | 체크된 옵션 업데이트 |
+
 ## Pinia
 
 ### ◼ State

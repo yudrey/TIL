@@ -24,7 +24,34 @@
 					:options="selectOoptions"
 					:boxStyle="selectboxStyle"
 				/>
-				{{ selectedValue }}
+				<p v-if="selectedValue" class="content__output">
+					Selected option : {{ selectedValue }}
+				</p>
+			</div>
+			<div class="mainView__content">
+				<p class="content__title">Checked options is displayed</p>
+				<checkbox
+					@update-checked="handleCheckedOption"
+					:options="checkList1"
+					:checkType="`checkbox`"
+				/>
+				<p
+					v-if="checkedValue && checkedValue.length > 0"
+					class="content__output"
+				>
+					Checked value : {{ checkedValue.toString() }}
+				</p>
+			</div>
+			<div class="mainView__content">
+				<p class="content__title">Checked option is displayed</p>
+				<checkbox
+					@update-checked="handleCheckedOption"
+					:options="checkList2"
+					:checkType="`radio`"
+				/>
+				<p v-if="radioCheckedValue" class="content__output">
+					Checked value : {{ radioCheckedValue }}
+				</p>
 			</div>
 		</section>
 		<modalLayer>
@@ -40,6 +67,7 @@ import { useDialogStore } from '@/store/module/dialog';
 import { useModalStore } from '@/store/module/modal';
 import modalLayer from '@/component/layer/modalLayer.vue';
 import selectbox from '@/component/form/selectboxForm.vue';
+import checkbox from '@/component/form/checkboxForm.vue';
 
 const dialog = useDialogStore();
 const modal = useModalStore();
@@ -60,6 +88,23 @@ const selectboxStyle = reactive({
 	width: '200px',
 	height: '40px',
 });
+const handlSelectedeOption = option => {
+	console.log('Emit event handlSelectedeOption', option);
+	selectedValue.value = option;
+};
+
+const checkedValue = ref([]);
+const radioCheckedValue = ref('');
+const checkList1 = reactive(['전체', '옵션1', '옵션2', '옵션3']);
+const checkList2 = reactive(['옵션1', '옵션2', '옵션3']);
+const handleCheckedOption = (params, checkType) => {
+	console.log('handleCheckedOption');
+	if (checkType === 'checkbox') {
+		checkedValue.value = params.value.filter(el => el !== '전체');
+	} else {
+		radioCheckedValue.value = params.value;
+	}
+};
 
 const checkConfirm = payload => {
 	console.log('payload ===', payload);
@@ -69,7 +114,6 @@ const checkConfirm = payload => {
 		console.log('define function when click cancel btn');
 	}
 };
-
 const openDialog = type => {
 	console.log('type ===', type);
 	switch (type) {
@@ -92,11 +136,6 @@ const openDialog = type => {
 const openPopup = () => {
 	modal.openModal(true);
 };
-
-const handlSelectedeOption = option => {
-	console.log('Emit event handlSelectedeOption', option);
-	selectedValue.value = option;
-};
 </script>
 
 <style lang="scss" scoped>
@@ -112,11 +151,18 @@ const handlSelectedeOption = option => {
 		}
 	}
 	&__content {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
 		padding: 30px 0;
 		border-bottom: 1px solid $gray_400;
 		.content {
 			&__title {
+				width: 100%;
 				margin-bottom: 10px;
+			}
+			&__output {
+				width: 50%;
 			}
 		}
 	}
@@ -133,6 +179,7 @@ const handlSelectedeOption = option => {
 		&__wrap {
 			display: flex;
 			justify-content: space-between;
+			width: 100%;
 		}
 	}
 }

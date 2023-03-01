@@ -83,7 +83,7 @@ em {
 // }
 
 /* input 기본 스타일 초기화 */
-input:not([type='checkbox']) {
+input {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -133,39 +133,6 @@ select::-ms-expand {
 
 		&--hidden {
 			@include hide-text;
-		}
-	}
-}
-
-.btn {
-	&__radio {
-		&__input {
-			position: relative;
-			width: 20px;
-			height: 20px;
-			margin: 0 10px;
-			border: 1px solid lightgrey;
-			border-radius: 100%;
-
-			&:checked {
-				background: gray;
-				&:before {
-					content: '';
-					display: block;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					width: 8px;
-					height: 8px;
-					background: $white;
-					border-radius: 100%;
-				}
-			}
-		}
-
-		&__label {
-			margin-right: 20px;
 		}
 	}
 }
@@ -247,6 +214,60 @@ select::-ms-expand {
 		.selected {
 			&:after {
 				border-color: #bbb;
+			}
+		}
+	}
+}
+
+.checkbox {
+	label {
+		margin-right: 10px;
+	}
+	input[type='radio'] {
+		position: relative;
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+		background-color: $white;
+		border: 1px solid $gray_500;
+		border-radius: 100%;
+
+		&:checked {
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 10px;
+				height: 10px;
+				background: $gray_800;
+				border-radius: 100%;
+			}
+		}
+	}
+	input[type='checkbox'] {
+		position: relative;
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+		background-color: $white;
+		border: 1px solid $gray_500;
+
+		&:checked {
+			display: inline-flex;
+			justify-content: center;
+			&:before {
+				content: '';
+				display: block;
+				width: 10px;
+				height: 5px;
+				margin-top: 3px;
+				border: 3px solid $gray_800;
+				border-top: 0;
+				border-right: 0;
+				transform: rotate(-45deg);
 			}
 		}
 	}
