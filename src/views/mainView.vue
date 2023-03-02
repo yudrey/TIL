@@ -69,9 +69,9 @@ import modalLayer from '@/component/layer/modalLayer.vue';
 import selectbox from '@/component/form/selectboxForm.vue';
 import checkbox from '@/component/form/checkboxForm.vue';
 
+const app = getCurrentInstance();
 const dialog = useDialogStore();
 const modal = useModalStore();
-const app = getCurrentInstance();
 const message = app.appContext.config.globalProperties.$MESSAGE;
 
 const selectedValue = ref('');

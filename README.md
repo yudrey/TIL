@@ -66,6 +66,7 @@ $ nvm use <version>
 - [pinia](https://github.com/vuejs/pinia)
 - [axios](https://github.com/axios/axios)
 - [vue-router](https://github.com/vuejs/router)
+- [vue-uuid](https://github.com/VitorLuizC/vue-uuid)
 
 <!-- Reference -->
 
