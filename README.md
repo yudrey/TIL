@@ -46,13 +46,12 @@ $ nvm use <version>
 
 ## Tech Stack
 
-- **Front-end Framework:** Vue.js 3.x
-- **Standard Tooling for Development:** @vue/cli
-- **State Management Library:** Pinia
-- **Pluggable JavaScript linter:** ESLint
-- **Opinionated Code Formatter:** Pretier
-- **JavaScript Version:** ES6
-- **CSS Preprocessor:** SCSS
+- SPA framework: Vue.js 3.x
+- State management library: Pinia
+- JavaScript linter: ESLint
+- Code formatter: Pretier
+- JavaScript version: ES6
+- CSS preprocessor: SCSS
 
 <!-- Library -->
 
